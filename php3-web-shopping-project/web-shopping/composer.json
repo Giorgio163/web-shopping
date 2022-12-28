@@ -1,0 +1,17 @@
+{
+    "name": "jagaad/projectmodule3",
+    "description": "project",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Projectmodule3\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Giorgio Selmi",
+            "email": "selmi.giorgio@gmail.com"
+        }
+    ],
+    "require": {}
+}
