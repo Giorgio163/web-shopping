@@ -8,6 +8,7 @@ use Projectmodule3\Action\CatalogueDisplayAction;
 use Projectmodule3\Action\CreateProductAction;
 use Projectmodule3\Action\DeleteProductAction;
 use Projectmodule3\Action\HomeAction;
+use Projectmodule3\Action\UpdateCartAction;
 use Projectmodule3\Action\UpdateProductAction;
 
 
@@ -26,6 +27,7 @@ class Application
             'catalogue' => (new CatalogueDisplayAction())->handle(),
             'cart' => (new CartDisplayAction())->handle(),
             'addToCart' => (new AddToCartAction())->handle(),
+            'updateCart' => (new UpdateCartAction())->handle(),
         };
     }
 }

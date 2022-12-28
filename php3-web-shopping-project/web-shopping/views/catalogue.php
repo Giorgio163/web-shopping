@@ -29,7 +29,7 @@
 <?php foreach ($product as $products): ?>
     <div class="col-md-4">
 
-        <img class="card-img-top" src="/Images/<?=random_int(2, 8)?>.jpg"
+        <img class="card-img-top" src="/Images/<?=random_int(1, 8)?>.jpg"
              alt="Card image cap" width="50">
             <div class="card-body">
                 <small class="text-muted" style="font-size: 10px">Product ID: #<?=$products->id()?></small><br>
@@ -62,7 +62,9 @@
     <footer class="text-muted">
         <div class="container">
             <p class="float-right">
-                <a href="#">Back to top</a>
+                <medium><div style="text-align: center;"><a href="#">Back to top</a></div></medium>
+
+
             </p>
         </div>
     </footer>
