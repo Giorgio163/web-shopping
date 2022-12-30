@@ -21,7 +21,7 @@ require_once __DIR__ . '/header.php';
     }
 </style>
 
-<form action="/index.php?action=updateCart" method="post">
+<form action="/index.php?action=checkout" method="post">
 
     <hr />
 
@@ -35,7 +35,6 @@ require_once __DIR__ . '/header.php';
         </tr>
         <?php
         foreach ($products as  $product):
-            ;
             ?>
             <tr>
                 <td><?=$product->id ?><br></td>
@@ -58,7 +57,7 @@ require_once __DIR__ . '/header.php';
     </table>
     <br>
     <br>
-    <button type="submit" class="btn btn-info">Checkout</button>
+    <button type="submit" class="btn btn-info">Proceed to Checkout</button>
 
 
 </body>

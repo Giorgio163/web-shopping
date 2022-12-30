@@ -5,6 +5,7 @@ namespace Projectmodule3;
 use Projectmodule3\Action\AddToCartAction;
 use Projectmodule3\Action\CartDisplayAction;
 use Projectmodule3\Action\CatalogueDisplayAction;
+use Projectmodule3\Action\CheckoutDisplayAction;
 use Projectmodule3\Action\CreateProductAction;
 use Projectmodule3\Action\DeleteFromCart;
 use Projectmodule3\Action\DeleteProductAction;
@@ -29,6 +30,7 @@ class Application
             'addToCart' => (new AddToCartAction())->handle(),
             'updateCart' => (new UpdateCartAction())->handle(),
             'deleteFromCart' => (new DeleteFromCart())->handle(),
+            'checkout' => (new CheckoutDisplayAction())->handle(),
         };
     }
 }

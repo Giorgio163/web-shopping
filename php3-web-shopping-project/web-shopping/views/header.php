@@ -15,7 +15,7 @@
     <a href="/index.php?action=default">Add products</a> |
     <a href="/index.php?action=catalogue">Catalogue</a> |
     <a href="/index.php?action=cart">Cart</a> |
-    <a href="">Checkout</a> |
+    <a href="/index.php?action=checkout">Checkout</a> |
     <a href="">Orders</a> |
     </div></div>
 <hr />
