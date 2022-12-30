@@ -9,12 +9,13 @@
     <title>Web Shopping</title>
 </head>
 
-<h1>Welcome to Web Shopping - </h1>
+<div style="text-align: center;"><h1>Welcome to Web Shopping - </h1></div>
 
-<div>
+<div style="text-align: center;"><div>
     <a href="/index.php?action=default">Add products</a> |
     <a href="/index.php?action=catalogue">Catalogue</a> |
     <a href="/index.php?action=cart">Cart</a> |
     <a href="">Checkout</a> |
-    <a href="">Orders</a>
-</div>
+    <a href="">Orders</a> |
+    </div></div>
+<hr />

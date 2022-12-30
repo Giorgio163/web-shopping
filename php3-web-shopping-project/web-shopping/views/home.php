@@ -1,13 +1,24 @@
-
 <?php
-
+require_once __DIR__ . '/header.php';
 ?>
 
-<?= require_once __DIR__ . '/header.php'; ?>
 
 <body>
 
-<h1>Manage Products</h1>
+<div style="text-align: center;"><h1>Manage Products</h1></div>
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    /* setting the text-align property to center*/
+    td {
+        padding: 5px;
+        text-align: center;
+    }
+</style>
 
 <form action="/index.php?action=create-product" method="post">
     <label>Product Name:<br>
@@ -33,7 +44,7 @@
     </label>
     <br>
     <br>
-    <button type="submit">Submit</button>
+    <button type="submit" class="btn btn-info">Create Product</button>
 </form>
 
 <hr />
@@ -42,7 +53,7 @@
     <tr>
         <th>Product Name</th>
         <th>Product Description</th>
-        <th>Product Price in $  </th>
+        <th>Product Price</th>
         <th>Product Quantity</th>
         <th>Delete Option</th>
         <th>Update Option</th>
@@ -55,7 +66,7 @@
         <tr>
             <td><?=$products->name() ?><br></td>
             <td><?=$products->description() ?><br></td>
-            <td><?=$products->price() ?><br></td>
+            <td>$<?=$products->price() ?><br></td>
             <td><?=$products->quantity() ?><br></td>
             <td>
                <?=
@@ -74,5 +85,7 @@
 
 
 </body>
-<?= require_once __DIR__ . '/footer.php'; ?>
+<?php
+require_once __DIR__ . '/footer.php';
+?>
 

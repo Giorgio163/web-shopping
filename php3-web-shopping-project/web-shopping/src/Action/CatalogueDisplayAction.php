@@ -9,10 +9,6 @@ class CatalogueDisplayAction
 {
     public function handle()
     {
-        $repository = ProductRepositoryFactory::make();
-        $product = $repository->findAll();
-
-
         require_once __DIR__ . '/../../views/catalogue.php';
     }
 

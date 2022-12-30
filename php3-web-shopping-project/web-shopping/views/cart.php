@@ -1,16 +1,25 @@
 <?php
 
 $products = $_SESSION['session_cart'];
-
+require_once __DIR__ . '/header.php';
 ?>
-
-<?= require_once __DIR__ . '/header.php'; ?>
-
-
 
 <body>
 
-<h1>Cart</h1>
+<div style="text-align: center;"><h1>Cart</h1></div>
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    td {
+        padding: 5px;
+        text-align: center;
+    }
+</style>
 
 <form action="/index.php?action=updateCart" method="post">
 
@@ -21,33 +30,27 @@ $products = $_SESSION['session_cart'];
             <th>Product ID</th>
             <th>Product Name</th>
             <th>Product Description</th>
-            <th>Product Price in $  </th>
+            <th>Product Price</th>
             <th>Product Quantity</th>
         </tr>
         <?php
         foreach ($products as  $product):
-            var_dump($product);
+            ;
             ?>
             <tr>
-                <td><?=$product->id() ?><br></td>
-                <td><?=$product->name() ?><br></td>
-                <td><?=$product->description()?><br></td>
-                <td><?=$product->price()?><br></td>
-                <td><select class="form-select" aria-label="Default select example" name="quantity" >
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select></td>
+                <td><?=$product->id ?><br></td>
+                <td><?=$product->name ?><br></td>
+                <td><?=$product->description?><br></td>
+                <td> $<?=$product->price?><br></td>
+                <td><?=$product->quantity?><br></td>
                 <td>
                     <?=
-                    "<a href='/index.php?action=updateCart&id={$product->id()}'>Update</a>";
+                    "<a href='/index.php?action=updateCart&id={$product->id}&quantity={$product->quantity}'>Update</a>";
+                    ?>
+                </td>
+                <td>
+                    <?=
+                    "<a href='/index.php?action=deleteFromCart&id={$product->id}'>Delete</a>";
                     ?>
                 </td>
             </tr>
@@ -59,4 +62,6 @@ $products = $_SESSION['session_cart'];
 
 
 </body>
-<?= require_once __DIR__ . '/footer.php'; ?>
+<?php
+require_once __DIR__ . '/footer.php';
+?>

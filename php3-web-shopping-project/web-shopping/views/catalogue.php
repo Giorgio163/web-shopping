@@ -1,7 +1,12 @@
 <?php
 
+use Projectmodule3\Factory\ProductRepositoryFactory;
+
+require_once __DIR__ . '/header.php';
+$repository = ProductRepositoryFactory::make();
+$product = $repository->findAll();
 ?>
-<?= require_once __DIR__ . '/header.php'; ?>
+
 
     <link rel="icon" href="/php3-web-shopping-project/web-shopping/public/Images">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
@@ -41,7 +46,8 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                         <?=
-                        "<a href='/index.php?action=addToCart&id={$products->id()}'>Add to cart</a>";
+                        "<a href='/index.php?action=addToCart&id={$products->id()}&name={$products->name()}&
+                            description={$products->description()}&price={$products->price()}'>Add to cart</a>";
                         ?>
                         <br>
                         <br>
@@ -71,4 +77,6 @@
     </body>
     </html>
 
-<?= require_once __DIR__ . '/footer.php'; ?>
+<?php
+require_once __DIR__ . '/footer.php';
+?>

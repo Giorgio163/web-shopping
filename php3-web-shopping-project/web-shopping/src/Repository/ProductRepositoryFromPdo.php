@@ -5,10 +5,11 @@ namespace Projectmodule3\Repository;
 use Projectmodule3\Entity\Product;
 
 use PDO;
+use Projectmodule3\Factory\ProductRepositoryFactory;
 
 class ProductRepositoryFromPdo implements ProductRepository
 {
-    public function __construct(public PDO $pdo)
+    public function __construct(private PDO $pdo)
     {}
 
     public function store(Product $product): void
@@ -82,6 +83,29 @@ class ProductRepositoryFromPdo implements ProductRepository
         $stmt= $this->pdo->prepare($sql);
         $stmt->execute([$id]);
 
+    }
+
+    public function update()
+    {
+        $id = $_POST['id'];
+        $name = $_POST['name'];
+        $description = $_POST['description'];
+        $price = $_POST['price'];
+        $quantity = $_POST['quantity'];
+
+        $params = [
+            ':id' => $id,
+            ':name' => $name,
+            ':description' => $description,
+            ':price' => $price,
+            ':quantity' => $quantity,
+        ];
+
+        $productRepository = ProductRepositoryFactory::make();
+
+        $sql = "UPDATE products SET name=:name, description=:description, price=:price, quantity=:quantity 
+                    WHERE id=:id";
+        $productRepository->pdo->prepare($sql)->execute($params);
     }
 
 }
