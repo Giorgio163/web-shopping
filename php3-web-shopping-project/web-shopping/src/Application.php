@@ -6,10 +6,12 @@ use Projectmodule3\Action\AddToCartAction;
 use Projectmodule3\Action\CartDisplayAction;
 use Projectmodule3\Action\CatalogueDisplayAction;
 use Projectmodule3\Action\CheckoutDisplayAction;
+use Projectmodule3\Action\CreateOrderAction;
 use Projectmodule3\Action\CreateProductAction;
 use Projectmodule3\Action\DeleteFromCart;
 use Projectmodule3\Action\DeleteProductAction;
 use Projectmodule3\Action\HomeAction;
+use Projectmodule3\Action\OrdersDisplayAction;
 use Projectmodule3\Action\UpdateCartAction;
 use Projectmodule3\Action\UpdateProductAction;
 
@@ -31,6 +33,8 @@ class Application
             'updateCart' => (new UpdateCartAction())->handle(),
             'deleteFromCart' => (new DeleteFromCart())->handle(),
             'checkout' => (new CheckoutDisplayAction())->handle(),
+            'completeOrder' => (new CreateOrderAction())->handle(),
+            'orders' => (new OrdersDisplayAction())->handle(),
         };
     }
 }

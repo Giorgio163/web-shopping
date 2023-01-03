@@ -27,7 +27,7 @@ class Order
         return $this->total;
     }
 
-    public function completedAt(): float
+    public function completedAt(): string
     {
         return $this->completed_at;
     }

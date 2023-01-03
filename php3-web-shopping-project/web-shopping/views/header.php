@@ -12,10 +12,10 @@
 <div style="text-align: center;"><h1>Welcome to Web Shopping - </h1></div>
 
 <div style="text-align: center;"><div>
-    <a href="/index.php?action=default">Add products</a> |
-    <a href="/index.php?action=catalogue">Catalogue</a> |
-    <a href="/index.php?action=cart">Cart</a> |
-    <a href="/index.php?action=checkout">Checkout</a> |
-    <a href="">Orders</a> |
+    <a href="/index.php?action=default">Go to Add products</a> |
+    <a href="/index.php?action=catalogue">Go to Catalogue</a> |
+    <a href="/index.php?action=cart">Go to Cart</a> |
+    <a href="/index.php?action=checkout">Go to Checkout</a> |
+    <a href="/index.php?action=orders">Go to Order History</a> |
     </div></div>
 <hr />

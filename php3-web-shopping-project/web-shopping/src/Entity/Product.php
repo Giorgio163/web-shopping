@@ -47,10 +47,4 @@ class Product
     {
         return $this->quantity;
     }
-
-    public function __toString()
-    {
-        $object = '';
-        return $object;
-    }
 }

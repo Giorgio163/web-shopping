@@ -27,7 +27,7 @@ foreach ($products as $product){
     }
 </style>
 
-<form action="/index.php?action=updateCart" method="post">
+<form action="/index.php?action=completeOrder" method="post">
 
     <hr />
 
@@ -42,19 +42,20 @@ foreach ($products as $product){
         ?>
             <tr>
                 <td><?= $product->name ?></td>
-                <td><?= $product->quantity ?></td>
-                <td>$<?= $product->quantity * $product->price  ?></td>
+                <td><input type="hidden" name="quantity" value="<?= $product->quantity ?>" readonly> <?= $product->quantity ?></td>
+                <td><input type="hidden" name="price" value="<?= $product->quantity * $product->price  ?>" readonly>
+                    $<?= $product->quantity * $product->price  ?></td>
                 <?php endforeach ?>
             </tr>
             <tr>
-                <td></td>
+                <td><b>Select Checkout Date:</b></td>
                 <td><input type="datetime-local" name="dateTime" required><br></td>
-                <td> <b>Total Order: $<?=$total?></b><br></td>
+                <td><input type="hidden" name="total" value="<?=$total?>" readonly><b>Total Order: $<?=$total?></b><br></td>
             </tr>
     </table>
     <br>
     <br>
-    <button type="submit" class="btn btn-info">Checkout</button>
+    <button type="submit" class="btn btn-info">Create Order</button>
 
 
 </body>
