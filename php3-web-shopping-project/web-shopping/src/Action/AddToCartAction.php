@@ -47,7 +47,7 @@ class AddToCartAction
             if ($_GET['id'] == $pro->id) {
                 $found = true;
                 echo "$pro->name already in cart, added 1 quantity";
-                $pro->quantity = ($pro->quantity + 1);
+                $pro->quantity += 1;
             }
             $productArrayDuplicate[] = $pro;
         }

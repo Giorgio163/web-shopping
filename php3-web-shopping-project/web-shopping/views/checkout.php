@@ -32,6 +32,7 @@ foreach ($products as $product){
     <hr />
 
     <table border="1">
+
         <tr>
             <th>Product name</th>
             <th>Total quantity</th>
