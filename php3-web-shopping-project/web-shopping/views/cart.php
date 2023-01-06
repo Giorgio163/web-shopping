@@ -57,7 +57,11 @@ require_once __DIR__ . '/header.php';
     </table>
     <br>
     <br>
-    <button type="submit" class="btn btn-info">Proceed to Checkout</button>
+    <?php if (count($products) === 0) {
+        echo "<b><i>Cart is empty cannot proceed to checkout, add a product and try again!</i></b>";
+    } else {
+        echo '<button type="submit" class="btn btn-info">Proceed To Checkout</button>';
+    }?>
 
 
 </body>

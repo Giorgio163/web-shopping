@@ -15,7 +15,6 @@
     <a href="/index.php?action=default">Go to Add products</a> |
     <a href="/index.php?action=catalogue">Go to Catalogue</a> |
     <a href="/index.php?action=cart">Go to Cart</a> |
-    <a href="/index.php?action=checkout">Go to Checkout</a> |
     <a href="/index.php?action=orders">Go to Order History</a> |
     </div></div>
 <hr />
