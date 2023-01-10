@@ -2,7 +2,7 @@
 
 namespace Projectmodule3\Entity;
 
-class OrdersItems
+class OrderItems
 {
     private ?int $order_id;
     private ?int $product_id;

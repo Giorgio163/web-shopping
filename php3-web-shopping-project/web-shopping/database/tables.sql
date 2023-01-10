@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS orders(
 
 
 CREATE TABLE IF NOT EXISTS order_items (
-    order_id INTEGER NOT NULL AUTO_INCREMENT,
+    order_id INTEGER NOT NULL,
     product_id INTEGER NOT NULL,
     quantity INTEGER NOT NULL,
     price DECIMAL(10,3) NOT NULL,

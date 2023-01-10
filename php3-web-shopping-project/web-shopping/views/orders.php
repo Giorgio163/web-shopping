@@ -40,6 +40,11 @@ $orders = $repository->findAllOrders();
             <td><?=$order->id() ?><br></td>
             <td>$<?=$order->total() ?><br></td>
             <td><?=$order->completedAt() ?><br></td>
+            <td>
+                <?=
+                "<a href='/index.php?action=updateCart&id={$order->id()}'>Order Details</a>";
+                ?>
+            </td>
         </tr>
     <?php endforeach ?>
 </table>
