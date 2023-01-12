@@ -2,9 +2,6 @@
 
 namespace Projectmodule3\Action;
 
-use Projectmodule3\Entity\Product;
-use Projectmodule3\Factory\ProductRepositoryFactory;
-
 session_name('session_cart');
 session_start();
 
@@ -27,21 +24,6 @@ class AddToCartAction
         $productArrayDuplicate = array();
         $productArray = $_SESSION['session_cart'];
 
-//        if (empty($productArray)) {
-//            $productArrayDuplicate[] = $product;
-//        } else {
-//            foreach ($productArray as $pro) {
-//                if ($_GET['id'] === $pro->id) {
-//                    echo 'The product is already in the cart';
-//                    $_SESSION['session_cart'] = $productArray;
-//                } else {
-//                    $productArrayDuplicate[] = $pro;
-//                    $_SESSION['session_cart'] = $productArrayDuplicate;
-//                }
-//            }
-//        }
-
-
         $found = false;
         foreach ($productArray as $pro) {
             if ($_GET['id'] == $pro->id) {
@@ -57,10 +39,16 @@ class AddToCartAction
             echo "Product added to the cart";
         }
 
-        //       $productArrayDuplicate[] = $product;
-        //       foreach ($productArray as $pro) {
-        //           if ($_GET['id'] == $pro->id) {
-        //               echo "$pro->name already in cart";
+        $_SESSION['session_cart'] = $productArrayDuplicate;
+        require_once __DIR__ . '/../../views/catalogue.php';
+    }
+}
+
+
+//       $productArrayDuplicate[] = $product;
+//       foreach ($productArray as $pro) {
+//           if ($_GET['id'] == $pro->id) {
+//               echo "$pro->name already in cart";
 //            } else {
 //                $productArrayDuplicate[] = $pro;
 //            }
@@ -68,7 +56,16 @@ class AddToCartAction
 
 //        sort($productArrayDuplicate);
 
-        $_SESSION['session_cart'] = $productArrayDuplicate;
-        require_once __DIR__ . '/../../views/catalogue.php';
-    }
-}
+//        if (empty($productArray)) {
+//            $productArrayDuplicate[] = $product;
+//        } else {
+//            foreach ($productArray as $pro) {
+//                if ($_GET['id'] === $pro->id) {
+//                    echo 'The product is already in the cart';
+//                    $_SESSION['session_cart'] = $productArray;
+//                } else {
+//                    $productArrayDuplicate[] = $pro;
+//                    $_SESSION['session_cart'] = $productArrayDuplicate;
+//                }
+//            }
+//        }

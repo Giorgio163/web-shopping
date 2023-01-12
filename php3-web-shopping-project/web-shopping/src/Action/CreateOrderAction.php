@@ -4,7 +4,9 @@ namespace Projectmodule3\Action;
 
 use Projectmodule3\Entity\Order;
 use Projectmodule3\Entity\OrderItems;
+use Projectmodule3\Factory\OrderItemsRepositoryFactory;
 use Projectmodule3\Factory\OrderRepositoryFactory;
+
 session_name('session_cart');
 session_start();
 
@@ -20,19 +22,22 @@ class CreateOrderAction
         $repository = OrderRepositoryFactory::makeOrder();
         $repository->storeOrder($orders);
 
-        $pdo = require __DIR__ . '/../../config/conn.php';
         $product = $_SESSION['session_cart'];
         foreach ($product as $pro) {
-            $productId = $pro->id;
+            $productId[] = $pro->id;
+            $productPrice[] = $pro->price;
+            $productQuantity[] = $pro->quantity;
+
         }
-        var_dump($productId);
-        die;
-        $stmt = $this->pdo->prepare(<<<SQL
-            INSERT INTO order_items
-            (order_id, product_id, quantity, price)
-            VALUES
-            (:order_id, :$pro->id, :quantity, :price)
-        SQL);
+
+        $orderItems = new OrderItems();
+        $orderItems->product_id = $productId;
+        $orderItems->quantity =  $productQuantity;
+        $orderItems->price = $productPrice;
+
+        $repo = OrderItemsRepositoryFactory::makeOrderItems();
+        $repo->storeOrdersItems($orderItems);
+
 
         session_destroy();
         require_once __DIR__ . '/../../views/orders.php';

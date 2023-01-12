@@ -1,7 +1,6 @@
 <?php
 
 namespace Projectmodule3\Repository;
-use PDOException;
 use Projectmodule3\Entity\OrderItems;
 
 use PDO;
@@ -13,16 +12,33 @@ class OrderItemsRepositoryFromPdo implements OrderItemsRepository
 
     public function storeOrdersItems(OrderItems $orderItems): void
     {
-        $product = $_SESSION['session_cart'];
-        foreach ($product as $pro) {
-            $product->id = $_GET['id'];
-        }
         $stmt = $this->pdo->prepare(<<<SQL
-            INSERT INTO order_items
-            (order_id, product_id, quantity, price)
-            VALUES
-            (:order_id, :$pro->id, :quantity, :price)
+           INSERT INTO `order_items` (`order_id`, `product_id`, `quantity`, `price`)
+           VALUES (:order_id, :product_id, :quantity, :price);                  
         SQL);
+
+        $productId = $orderItems->product_id;
+        $productQ = $orderItems->quantity;
+        $productPrice = $orderItems->price;
+        foreach ($productId as $proId){
+            $proId = implode(',', $productId);
+        }
+        foreach ($productQ as $proQ){
+            $proQ = implode(',', $productQ);
+        }
+        foreach ($productPrice as $proP)
+        $proP = implode(',', $productPrice);
+
+        $param = [
+            ':order_id' => 95,
+            ':product_id' => $proId,
+            ':quantity' => $proQ,
+            ':price' =>  $proP
+        ];
+
+        $stmt->execute($param);
+
+
 
 
 

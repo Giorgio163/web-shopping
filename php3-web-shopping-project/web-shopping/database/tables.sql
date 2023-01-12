@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS products(
 
 CREATE TABLE IF NOT EXISTS orders(
     id INTEGER NOT NULL AUTO_INCREMENT,
-    total DECIMAL(10,3) NOT NULL,
+    total DECIMAL(10,2) NOT NULL,
     completed_at DATETIME NOT NULL,
     PRIMARY KEY (id)
 );
@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS order_items (
     order_id INTEGER NOT NULL,
     product_id INTEGER NOT NULL,
     quantity INTEGER NOT NULL,
-    price DECIMAL(10,3) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
     PRIMARY KEY(order_id, product_id),
     FOREIGN KEY(product_id) REFERENCES products(id),
     FOREIGN KEY(order_id) REFERENCES orders(id)
