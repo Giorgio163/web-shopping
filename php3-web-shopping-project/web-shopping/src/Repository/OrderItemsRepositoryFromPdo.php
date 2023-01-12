@@ -20,28 +20,22 @@ class OrderItemsRepositoryFromPdo implements OrderItemsRepository
         $productId = $orderItems->product_id;
         $productQ = $orderItems->quantity;
         $productPrice = $orderItems->price;
-        foreach ($productId as $proId){
-            $proId = implode(',', $productId);
-        }
         foreach ($productQ as $proQ){
-            $proQ = implode(',', $productQ);
+            $quantity = $proQ;
         }
-        foreach ($productPrice as $proP)
-        $proP = implode(',', $productPrice);
+        foreach ($productPrice as $proP){
+            $price = $proP;
+        }
+        foreach ($productId as $proId) {
+            $param = [
+                ':order_id' => 95,
+                ':product_id' => $proId,
+                ':quantity' => $quantity,
+                ':price' =>  $price
+            ];
 
-        $param = [
-            ':order_id' => 95,
-            ':product_id' => $proId,
-            ':quantity' => $proQ,
-            ':price' =>  $proP
-        ];
-
-        $stmt->execute($param);
-
-
-
-
-
+            $stmt->execute($param);
+        }
     }
 
     public function findAllOrderItems(): array
