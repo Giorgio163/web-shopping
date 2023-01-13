@@ -32,22 +32,6 @@ class OrderRepositoryFromPdo implements OrderRepository
         $stm->execute($param);
     }
 
-    private function getStoreQuery(Order $orders) {
-        if ($orders->id()) {
-            return <<<SQL
-                UPDATE orders
-                SET id=:id,
-                    total=:total,
-                    completed_at=:completed_at
-                WHERE id=:id
-            SQL;
-        }
-        return <<<SQL
-            INSERT INTO Orders (id, total, completed_at)
-            VALUES (:id, :total, :completed_at)
-        SQL;
-    }
-
     public function findAllOrders(): array
     {
         $stm = $this->pdo->prepare(<<<SQL

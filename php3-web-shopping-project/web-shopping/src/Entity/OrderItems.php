@@ -5,37 +5,38 @@ namespace Projectmodule3\Entity;
 class OrderItems
 {
     public String $order_id;
-    public array $product_id;
-    public array $quantity;
-    public array $price;
+    public int $product_id;
+    public int $quantity;
+    public float $price;
 
     public function __construct(
         string $order_id = '',
-        float $quantity = 1,
-        float $price = 1,
+        int $product_id = 0,
+        int $quantity = 0,
+        float $price = 0,
     ){
         $this->order_id = $order_id;
-        $this->product_id = array();
-        $this->quantity = array();
-        $this->price = array();
+        $this->product_id = $product_id;
+        $this->quantity = $quantity;
+        $this->price = $price;
     }
 
-    public function orderId(): ?int
+    public function orderId(): string
     {
         return $this->order_id;
     }
 
-    public function productId(): array
+    public function productId(): int
     {
         return $this->product_id;
     }
 
-    public function quantity(): array
+    public function quantity(): int
     {
         return $this->quantity;
     }
 
-    public function price(): array
+    public function price(): float
     {
         return $this->price;
     }

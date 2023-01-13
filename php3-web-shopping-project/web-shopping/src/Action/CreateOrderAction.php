@@ -26,18 +26,18 @@ class CreateOrderAction
 
         $product = $_SESSION['session_cart'];
         foreach ($product as $pro) {
-            $productId[] = $pro->id;
-            $productPrice[] = $pro->price;
-            $productQuantity[] = $pro->quantity;
+            $productId = $pro->id;
+            $productPrice = $pro->price;
+            $productQuantity = $pro->quantity;
 
         }
 
         $orderItems = new OrderItems();
         $orderItems->order_id = $orderId;
-        $orderItems->product_id = $productId;
-        $orderItems->quantity =  $productQuantity;
-        $orderItems->price = $productPrice;
-        var_dump($orderId);
+        $orderItems->product_id = $pro->id;
+        $orderItems->quantity =  $pro->quantity;
+        $orderItems->price = $pro->price;
+
         $repo = OrderItemsRepositoryFactory::makeOrderItems();
         $repo->storeOrdersItems($orderItems);
 

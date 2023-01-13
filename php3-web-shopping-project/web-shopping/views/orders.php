@@ -1,5 +1,6 @@
 <?php
 
+use Projectmodule3\Entity\Order;
 use Projectmodule3\Factory\OrderRepositoryFactory;
 
 require_once __DIR__ . '/header.php';
@@ -33,7 +34,7 @@ $orders = $repository->findAllOrders();
     </tr>
 
     <?php
-    /** @var \Projectmodule3\Entity\Order $orders */
+    /** @var Order $orders */
     foreach ($orders as $order):
         ?>
         <tr>
@@ -42,7 +43,7 @@ $orders = $repository->findAllOrders();
             <td><?=$order->completedAt() ?><br></td>
             <td>
                 <?=
-                "<a href='/index.php?action=updateCart&id={$order->id()}'>Order Details</a>";
+                "<a href='/index.php?action=orderItems&id={$order->id()}'>Order Details</a>";
                 ?>
             </td>
         </tr>

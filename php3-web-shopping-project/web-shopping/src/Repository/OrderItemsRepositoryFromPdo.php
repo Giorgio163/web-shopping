@@ -8,36 +8,32 @@ use PDO;
 class OrderItemsRepositoryFromPdo implements OrderItemsRepository
 {
     public function __construct(private PDO $pdo)
-    {}
+    {
+    }
 
     public function storeOrdersItems(OrderItems $orderItems): void
     {
         $stmt = $this->pdo->prepare(<<<SQL
            INSERT INTO `order_items` (`order_id`, `product_id`, `quantity`, `price`)
            VALUES (:order_id, :product_id, :quantity, :price);                  
-        SQL);
+        SQL
+        );
         $orderId = $orderItems->order_id;
         $productId = $orderItems->product_id;
         $productQ = $orderItems->quantity;
         $productPrice = $orderItems->price;
 
-        foreach ($productQ as $proQ){
-            $quantity = $proQ;
-        }
-        foreach ($productPrice as $proP){
-            $price = $proP;
-        }
-        foreach ($productId as $proId) {
-            $param = [
-                ':order_id' => $orderId,
-                ':product_id' => $proId,
-                ':quantity' => $proQ,
-                ':price' =>  $price
-            ];
+        $param = [
+            ':order_id' => $orderItems->order_id,
+            ':product_id' => $orderItems->product_id,
+            ':quantity' => $orderItems->quantity,
+            ':price' => $productPrice
+        ];
 
-            $stmt->execute($param);
-        }
-    }
+        $stmt->execute($param);
+    
+
+}
 
     public function findAllOrderItems(): array
     {

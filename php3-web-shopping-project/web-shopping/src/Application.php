@@ -11,6 +11,7 @@ use Projectmodule3\Action\CreateProductAction;
 use Projectmodule3\Action\DeleteFromCart;
 use Projectmodule3\Action\DeleteProductAction;
 use Projectmodule3\Action\HomeAction;
+use Projectmodule3\Action\OrderItemsDisplayAction;
 use Projectmodule3\Action\OrdersDisplayAction;
 use Projectmodule3\Action\UpdateCartAction;
 use Projectmodule3\Action\UpdateProductAction;
@@ -35,6 +36,7 @@ class Application
             'checkout' => (new CheckoutDisplayAction())->handle(),
             'completeOrder' => (new CreateOrderAction())->handle(),
             'orders' => (new OrdersDisplayAction())->handle(),
+            'orderItems' => (new OrderItemsDisplayAction())->handle(),
         };
     }
 }
