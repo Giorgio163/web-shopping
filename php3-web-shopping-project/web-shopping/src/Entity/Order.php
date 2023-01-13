@@ -4,20 +4,21 @@ namespace Projectmodule3\Entity;
 
 class Order
 {
-    private ?int $id;
+    private string $id;
     private string $total;
     private string $completed_at;
 
     public function __construct(
+        string $id = '',
         string $total = '',
         string $completed_at = '',
     ){
-        $this->id = null;
+        $this->id = $id;
         $this->total = $total;
         $this->completed_at =$completed_at;
     }
 
-    public function id(): ?int
+    public function id(): string
     {
         return $this->id;
     }

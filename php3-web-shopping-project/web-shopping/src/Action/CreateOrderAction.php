@@ -14,7 +14,9 @@ class CreateOrderAction
 {
     public function handle()
     {
+        $orderId = uniqid();
         $orders = new Order(
+            $orderId,
             filter_input(INPUT_POST, 'total'),
             filter_input(INPUT_POST, 'dateTime')
         );
@@ -31,10 +33,11 @@ class CreateOrderAction
         }
 
         $orderItems = new OrderItems();
+        $orderItems->order_id = $orderId;
         $orderItems->product_id = $productId;
         $orderItems->quantity =  $productQuantity;
         $orderItems->price = $productPrice;
-
+        var_dump($orderId);
         $repo = OrderItemsRepositoryFactory::makeOrderItems();
         $repo->storeOrdersItems($orderItems);
 

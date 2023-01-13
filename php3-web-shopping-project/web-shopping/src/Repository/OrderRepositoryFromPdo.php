@@ -12,11 +12,16 @@ class OrderRepositoryFromPdo implements OrderRepository
 
     public function storeOrder(Order $orders): void
     {
-        $sql = $this->getStoreQuery($orders);
-        $stm = $this->pdo->prepare($sql);
+
+        $stm = $this->pdo->prepare(<<<SQL
+            INSERT INTO Orders (id, total, completed_at)
+            VALUES (:id, :total, :completed_at)
+        SQL);
+
+        $orderId = $orders->id();
 
         $param = [
-            ':id' => $orders->id(),
+            ':id' => $orderId,
             ':total' => $orders->total(),
             ':completed_at' => $orders->completedAt(),
         ];

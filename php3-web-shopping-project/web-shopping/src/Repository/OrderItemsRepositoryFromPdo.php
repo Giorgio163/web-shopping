@@ -16,10 +16,11 @@ class OrderItemsRepositoryFromPdo implements OrderItemsRepository
            INSERT INTO `order_items` (`order_id`, `product_id`, `quantity`, `price`)
            VALUES (:order_id, :product_id, :quantity, :price);                  
         SQL);
-
+        $orderId = $orderItems->order_id;
         $productId = $orderItems->product_id;
         $productQ = $orderItems->quantity;
         $productPrice = $orderItems->price;
+
         foreach ($productQ as $proQ){
             $quantity = $proQ;
         }
@@ -28,9 +29,9 @@ class OrderItemsRepositoryFromPdo implements OrderItemsRepository
         }
         foreach ($productId as $proId) {
             $param = [
-                ':order_id' => 95,
+                ':order_id' => $orderId,
                 ':product_id' => $proId,
-                ':quantity' => $quantity,
+                ':quantity' => $proQ,
                 ':price' =>  $price
             ];
 
