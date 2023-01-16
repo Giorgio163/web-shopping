@@ -1,13 +1,12 @@
 <?php
 
-
 use Projectmodule3\Entity\OrderItems;
 use Projectmodule3\Factory\OrderItemsRepositoryFactory;
 
-// get from id to be implemented
 require_once __DIR__ . '/header.php';
-$repository = OrderItemsRepositoryFactory::makeOrderItems();
-$orderItems = $repository->findAllOrderItems()// pass id here);
+$id = filter_input(INPUT_GET, 'id');
+$orderItemsRepository = OrderItemsRepositoryFactory::makeOrderItems();
+$orderItems =$orderItemsRepository->findOrderItems($id);
 
 ?>
 
@@ -41,10 +40,10 @@ $orderItems = $repository->findAllOrderItems()// pass id here);
     foreach ($orderItems as $item):
         ?>
         <tr>
-            <td><?=$item->orderId() ?><br></td>
-            <td><?=$item->productId() ?><br></td>
-            <td>$<?=$item->price() ?><br></td>
-            <td><?=$item->quantity() ?><br></td>
+            <td><?=$item->order_id ?><br></td>
+            <td><?=$item->product_id ?><br></td>
+            <td>$<?=$item->price ?><br></td>
+            <td><?=$item->quantity ?><br></td>
         </tr>
     <?php endforeach ?>
 </table>

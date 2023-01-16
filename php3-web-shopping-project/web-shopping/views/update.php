@@ -1,4 +1,7 @@
 <?php
+
+use Projectmodule3\Entity\Product;
+
 require_once __DIR__ . '/header.php';
 ?>
 
@@ -7,7 +10,7 @@ require_once __DIR__ . '/header.php';
 <h1>Update Products</h1>
 
 <?php
-/** @var \Projectmodule3\Entity\Product $product */
+/** @var Product $product */
 ?>
 
 <form action="/index.php?action=update" method="post">

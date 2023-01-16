@@ -30,17 +30,15 @@ class CreateOrderAction
             $productPrice = $pro->price;
             $productQuantity = $pro->quantity;
 
+            $orderItems = new OrderItems();
+            $orderItems->order_id = $orderId;
+            $orderItems->product_id = $pro->id;
+            $orderItems->quantity = $pro->quantity;
+            $orderItems->price = $pro->price;
+
+            $repo = OrderItemsRepositoryFactory::makeOrderItems();
+            $repo->storeOrdersItems($orderItems);
         }
-
-        $orderItems = new OrderItems();
-        $orderItems->order_id = $orderId;
-        $orderItems->product_id = $pro->id;
-        $orderItems->quantity =  $pro->quantity;
-        $orderItems->price = $pro->price;
-
-        $repo = OrderItemsRepositoryFactory::makeOrderItems();
-        $repo->storeOrdersItems($orderItems);
-
 
         session_destroy();
         require_once __DIR__ . '/../../views/orders.php';

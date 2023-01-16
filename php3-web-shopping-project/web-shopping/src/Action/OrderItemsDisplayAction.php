@@ -2,6 +2,8 @@
 
 namespace Projectmodule3\Action;
 
+use Projectmodule3\Factory\OrderItemsRepositoryFactory;
+
 class OrderItemsDisplayAction
 {
     public function handle()

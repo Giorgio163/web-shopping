@@ -11,6 +11,6 @@ interface OrderItemsRepository
     /**
      * @return array
      */
-    public function findAllOrderItems(): array;
+    public function findOrderItems($id): array|bool;
 
 }
