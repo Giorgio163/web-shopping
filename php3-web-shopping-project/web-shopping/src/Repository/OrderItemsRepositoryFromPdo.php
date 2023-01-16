@@ -38,12 +38,15 @@ class OrderItemsRepositoryFromPdo implements OrderItemsRepository
     public function findOrderItems($id): array|bool
     {
             $stmt = $this->pdo->prepare(<<<SQL
-            SELECT * FROM order_items WHERE order_id=:id
-        SQL
-            );
+           SELECT oi.order_id AS order_id, oi.product_id AS product_id, p.name AS name, oi.quantity AS quantity, oi.price AS price
+            FROM orders o 
+            JOIN order_items oi ON oi.order_id=o.id
+            JOIN products p ON oi.product_id=p.id
+            WHERE order_id = :order_id
+        SQL);
 
             $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, OrderItems::class);
-            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':order_id', $id);
             $stmt->execute();
 
             return $stmt->fetchAll();

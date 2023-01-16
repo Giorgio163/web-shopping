@@ -31,6 +31,7 @@ $orderItems =$orderItemsRepository->findOrderItems($id);
     <tr>
         <th>Order ID</th>
         <th>Product ID</th>
+        <th>Product Name</th>
         <th>Product Price</th>
         <th>Product Quantity</th>
     </tr>
@@ -42,6 +43,7 @@ $orderItems =$orderItemsRepository->findOrderItems($id);
         <tr>
             <td><?=$item->order_id ?><br></td>
             <td><?=$item->product_id ?><br></td>
+            <td><?=$item->name ?><br></td>
             <td>$<?=$item->price ?><br></td>
             <td><?=$item->quantity ?><br></td>
         </tr>

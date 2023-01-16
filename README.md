@@ -1,12 +1,9 @@
-# Welcome to my Project PHP Repository
+Welcome to my PHP Repository
+This repository contains most of the project made in my career in the Academy 
 
-This repository contains the Project module 3
+To find the classroom exercises you will have to run the following as an example:
 
-## 
-```php 
-   Work in progress :)
-```
+module1/chapter2/lessons/PHP1.C2.L1
 
-#### Please notify me if you have any suggestions or improvement for my repository via e-mail or slack  :)
 
-# Have fun looking around!
+
