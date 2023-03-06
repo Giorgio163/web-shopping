@@ -8,7 +8,7 @@ $product = $repository->findAll();
 ?>
 
 
-    <link rel="icon" href="/php3-web-shopping-project/web-shopping/public/Images">
+    <link rel="icon" href="/public/Images">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
           integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 

@@ -34,7 +34,7 @@ require_once __DIR__ . '/header.php';
     <br>
 
     <label>Product Price:<br>
-        <input name="price" placeholder="Price" type="text" required/>
+        <input name="price" placeholder="Price" type="number" required/>
     </label>
     <br>
     <br>
