@@ -8,7 +8,8 @@ use PDO;
 class OrderRepositoryFromPdo implements OrderRepository
 {
     public function __construct(private PDO $pdo)
-    {}
+    {
+    }
 
     public function storeOrder(Order $orders): void
     {
@@ -26,7 +27,7 @@ class OrderRepositoryFromPdo implements OrderRepository
             ':completed_at' => $orders->completedAt(),
         ];
 
-        if ($orders->id()){
+        if ($orders->id()) {
             $param[':id'] = $orders->id();
         }
         $stm->execute($param);
@@ -39,7 +40,7 @@ class OrderRepositoryFromPdo implements OrderRepository
             FROM orders
         SQL);
 
-        $stm->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, Order::class);
+        $stm->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Order::class);
         $stm->execute();
 
         return $stm->fetchAll();

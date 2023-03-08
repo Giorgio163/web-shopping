@@ -1,8 +1,8 @@
 <?php
 
 namespace Projectmodule3\Repository;
-use Projectmodule3\Entity\OrderItems;
 
+use Projectmodule3\Entity\OrderItems;
 use PDO;
 
 class OrderItemsRepositoryFromPdo implements OrderItemsRepository
@@ -31,9 +31,7 @@ class OrderItemsRepositoryFromPdo implements OrderItemsRepository
             ];
 
             $stmt->execute($param);
-
-
-}
+    }
 
     public function findOrderItems($id): array|bool
     {

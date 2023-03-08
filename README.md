@@ -1,3 +1,8 @@
+<p align="center">
+  <img align="center" height="200" src="public/elephant.jpg">
+</p>
+
+
 # PHP-Web-Shopping
 
 ## Description

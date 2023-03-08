@@ -9,7 +9,6 @@ class UpdateProductAction
     public function handle()
     {
         if (isset($_POST['id']) && $_POST['name'] && $_POST['description'] && $_POST['price'] && $_POST['quantity']) {
-
             $productParams = [
                 $id = $_POST['id'],
                 $name = $_POST['name'],
@@ -30,5 +29,4 @@ class UpdateProductAction
 
         require_once __DIR__ . '/../../views/update.php';
     }
-
 }

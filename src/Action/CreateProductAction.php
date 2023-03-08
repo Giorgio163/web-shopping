@@ -5,7 +5,6 @@ namespace Projectmodule3\Action;
 use Projectmodule3\Entity\Product;
 use Projectmodule3\Factory\ProductRepositoryFactory;
 
-
 class CreateProductAction
 {
     public function handle(): void

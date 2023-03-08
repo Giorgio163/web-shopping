@@ -15,8 +15,8 @@ class DeleteFromCart
 
         $productArray = $_SESSION['session_cart'];
 
-        foreach ($productArray as $pro){
-            if($id != $pro->id){
+        foreach ($productArray as $pro) {
+            if ($id != $pro->id) {
                 $productArrayDeleted[] = $pro;
             }
             $_SESSION['session_cart'] = $productArrayDeleted;
@@ -24,7 +24,5 @@ class DeleteFromCart
 
 
         require_once __DIR__ . '/../../views/cart.php';
-
     }
-
 }

@@ -8,5 +8,4 @@ class OrdersDisplayAction
     {
         require_once __DIR__ . '/../../views/orders.php';
     }
-
 }

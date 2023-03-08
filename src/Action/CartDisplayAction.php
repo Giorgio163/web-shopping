@@ -2,7 +2,6 @@
 
 namespace Projectmodule3\Action;
 
-
 use Projectmodule3\Entity\Product;
 use Projectmodule3\Factory\ProductRepositoryFactory;
 
@@ -13,7 +12,7 @@ class CartDisplayAction
 
         session_name('session_cart');
         session_start();
-        if(!isset($_SESSION['session_cart'])) {
+        if (!isset($_SESSION['session_cart'])) {
             $_SESSION['session_cart'] = array();
         }
 

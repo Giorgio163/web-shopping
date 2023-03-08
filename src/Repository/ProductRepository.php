@@ -4,7 +4,7 @@ namespace Projectmodule3\Repository;
 
 use Projectmodule3\Entity\Product;
 
-Interface ProductRepository
+interface ProductRepository
 {
     public function store(Product $product): void;
 

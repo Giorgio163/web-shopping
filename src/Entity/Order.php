@@ -12,10 +12,10 @@ class Order
         string $id = '',
         string $total = '',
         string $completed_at = '',
-    ){
+    ) {
         $this->id = $id;
         $this->total = $total;
-        $this->completed_at =$completed_at;
+        $this->completed_at = $completed_at;
     }
 
     public function id(): string

@@ -16,14 +16,13 @@ use Projectmodule3\Action\OrdersDisplayAction;
 use Projectmodule3\Action\UpdateCartAction;
 use Projectmodule3\Action\UpdateProductAction;
 
-
 class Application
 {
     public function run(): void
     {
         $action = filter_input(INPUT_GET, 'action');
 
-        match ($action){
+        match ($action) {
             'create-product' => (new CreateProductAction())->handle(),
             default => (new HomeAction())->handle(),
             'delete' => (new DeleteProductAction())->handle(),

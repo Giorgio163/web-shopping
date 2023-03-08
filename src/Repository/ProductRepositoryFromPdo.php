@@ -3,14 +3,14 @@
 namespace Projectmodule3\Repository;
 
 use Projectmodule3\Entity\Product;
-
 use PDO;
 use Projectmodule3\Factory\ProductRepositoryFactory;
 
 class ProductRepositoryFromPdo implements ProductRepository
 {
     public function __construct(private PDO $pdo)
-    {}
+    {
+    }
 
     public function store(Product $product): void
     {
@@ -24,13 +24,14 @@ class ProductRepositoryFromPdo implements ProductRepository
              ':quantity' => $product->quantity(),
         ];
 
-        if ($product->id()){
+        if ($product->id()) {
             $param[':id'] = $product->id();
         }
         $stm->execute($param);
     }
 
-    private function getStoreQuery(Product $product) {
+    private function getStoreQuery(Product $product)
+    {
         if ($product->id()) {
             return <<<SQL
                 UPDATE products
@@ -54,7 +55,7 @@ class ProductRepositoryFromPdo implements ProductRepository
             FROM products
         SQL);
 
-        $stm->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, Product::class);
+        $stm->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Product::class);
         $stm->execute();
 
         return $stm->fetchAll();
@@ -68,7 +69,7 @@ class ProductRepositoryFromPdo implements ProductRepository
             WHERE id=:id
         SQL);
 
-        $stm->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, Product::class);
+        $stm->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Product::class);
         $stm->bindParam(':id', $id);
         $stm->execute();
 
@@ -80,9 +81,8 @@ class ProductRepositoryFromPdo implements ProductRepository
         $id = (int)filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
         $sql = "DELETE FROM products WHERE id=?";
-        $stmt= $this->pdo->prepare($sql);
+        $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id]);
-
     }
 
     public function update()
@@ -107,5 +107,4 @@ class ProductRepositoryFromPdo implements ProductRepository
                     WHERE id=:id";
         $productRepository->pdo->prepare($sql)->execute($params);
     }
-
 }

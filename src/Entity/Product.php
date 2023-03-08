@@ -15,10 +15,10 @@ class Product
         string $description = '',
         float $price = 0,
         float $quantity = 0
-    ){
+    ) {
         $this->id = null;
         $this->name = $name;
-        $this->description =$description;
+        $this->description = $description;
         $this->price = $price;
         $this->quantity = $quantity;
     }

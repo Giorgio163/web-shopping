@@ -16,7 +16,7 @@ class OrderItems
         string $name = '',
         int $quantity = 0,
         float $price = 0,
-    ){
+    ) {
         $this->order_id = $order_id;
         $this->product_id = $product_id;
         $this->name = $name;

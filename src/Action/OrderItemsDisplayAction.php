@@ -10,5 +10,4 @@ class OrderItemsDisplayAction
     {
         require_once __DIR__ . '/../../views/orderItems.php';
     }
-
 }

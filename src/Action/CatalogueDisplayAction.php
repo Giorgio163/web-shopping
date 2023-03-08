@@ -8,5 +8,4 @@ class CatalogueDisplayAction
     {
         require_once __DIR__ . '/../../views/catalogue.php';
     }
-
 }
